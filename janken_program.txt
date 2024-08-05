@@ -1,0 +1,26 @@
+import random
+
+def main():
+    choices = ['グー', 'チョキ', 'パー']
+    player_choice = input('「グー」「チョキ」「パー」のいずれかを入力してください: ')
+    if player_choice not in choices:
+        print('無効な入力です。プログラムを終了します。')
+        return
+    
+    computer_choice = random.choice(choices)
+    print(f'コンピュータの手: {computer_choice}')
+    
+    if player_choice == computer_choice:
+        result = '引き分け'
+    elif (player_choice == 'グー' and computer_choice == 'チョキ') or \
+         (player_choice == 'チョキ' and computer_choice == 'パー') or \
+         (player_choice == 'パー' and computer_choice == 'グー'):
+        result = 'プレイヤーの勝ち'
+    else:
+        result = 'コンピュータの勝ち'
+    
+    print(f'プレイヤーの手: {player_choice}')
+    print(f'結果: {result}')
+
+if __name__ == "__main__":
+    main()
